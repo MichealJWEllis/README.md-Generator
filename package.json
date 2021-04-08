@@ -1,0 +1,22 @@
+{
+  "name": "readme.md-generator",
+  "version": "1.0.0",
+  "description": "Node Application to Generate Usable Professional README.md files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichealJWEllis/README.md-Generator.git"
+  },
+  "author": "Micheal Jw Ellis Sr.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichealJWEllis/README.md-Generator/issues"
+  },
+  "homepage": "https://github.com/MichealJWEllis/README.md-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
