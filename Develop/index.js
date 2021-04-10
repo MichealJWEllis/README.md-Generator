@@ -29,9 +29,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What license was used for this README? ',
-        choices: ['Unlicense', 'Apache License 2.0', 'GNU General Public License v3.0',
-            'MIT License', 'BSD 2-Clause', 'BSD 3-Clause',
-            'Boost Software License 1.0', 'ISC License', 'IBM Public License Version 1.0','Pearl License']
+        choices: ['Unlicense','Apache-2.0','BSD-3-Clause','BSD-2-Clause','gpl-license','MIT','MPL-2.0','CDDL-1.0','EPL-2.0','ISC']
     },
     {
         type: 'list',
@@ -79,7 +77,7 @@ const questions = [
     {
         type: 'input',
         name: 'mentions',
-        message: 'Please provide mentions: ',
+        message: 'Please provide mention: ',
         when: ({confirmAbout}) => {
             if(confirmAbout) {
                 return true;
@@ -92,12 +90,12 @@ const questions = [
     {
         type: 'confirm',
         name: 'confirmImage',
-        message: 'Would you like to add images to your README? ',
+        message: 'Would you like to add image to your README? ',
         default: true
     },
     {
         type: 'input',
-        name: 'images',
+        name: 'image',
         message: 'Please provide image link: ',
         when: ({confirmImage}) => {
             if (confirmImage) {
@@ -124,6 +122,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
         .then(function (data) {
+            console.log(data)
             writeToFile('README.md', generateMarkdown(data));
         })
 }
