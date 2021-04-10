@@ -2,13 +2,17 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-// const mrkDwnGenerator = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
+        name: 'name',
+        message: 'What is your name? '
+    },
+    {
+        type: 'input',
         name: 'title',
-        message: 'What is the name of your project? ',
+        message: 'What is the name of your project/repository? ',
     },
     {
         type: 'input',
@@ -29,13 +33,13 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What license was used for this README? ',
-        choices: ['Unlicense','Apache-2.0','BSD-3-Clause','BSD-2-Clause','gpl-license','MIT','MPL-2.0','CDDL-1.0','EPL-2.0','ISC']
+        choices: ['Unlicense', 'Apache-2.0', 'BSD-3-Clause', 'BSD-2-Clause', 'gpl-license', 'MIT', 'MPL-2.0', 'CDDL-1.0', 'EPL-2.0', 'ISC']
     },
     {
         type: 'list',
         name: 'color',
         message: 'What color would you like to make your license badge?',
-        choices: ['brightgreen','green','yellowgreen','yellow','orange','red','blue','blueviolet']
+        choices: ['brightgreen', 'green', 'yellowgreen', 'yellow', 'red', 'blue', 'blueviolet','black']
 
     },
     {
@@ -55,7 +59,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'test', 
+        name: 'test',
         message: 'Please advise on your test opporations performed for your project: '
     },
     {
@@ -78,10 +82,10 @@ const questions = [
         type: 'input',
         name: 'mentions',
         message: 'Please provide mention: ',
-        when: ({confirmAbout}) => {
-            if(confirmAbout) {
+        when: ({ confirmAbout }) => {
+            if (confirmAbout) {
                 return true;
-                
+
             } else {
                 return false;
             }
@@ -97,7 +101,7 @@ const questions = [
         type: 'input',
         name: 'image',
         message: 'Please provide image link: ',
-        when: ({confirmImage}) => {
+        when: ({ confirmImage }) => {
             if (confirmImage) {
                 return true;
             } else {
@@ -110,22 +114,27 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
-    fs.writeFile('../' + fileName, data, function(err) {
+    fs.writeFile('../' + fileName, data, function (err) {
         if (err) {
             return console.log(err);
         }
-        console.log ('Successfully wrote: ' + fileName);
+        console.log('Successfully published: ' + fileName);
     })
- }
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then(function (data) {
-            console.log(data)
             writeToFile('README.md', generateMarkdown(data));
         })
 }
 
 // Function call to initialize app
 init();
+
+//Developer notes: 
+// Will create redundancies for each input
+// Create video link for presentation of project
+// Clean code for possible errors and whitespace
+// Create text file for easy copy paste of input

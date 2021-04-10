@@ -24,16 +24,31 @@ function renderLicenseSection(license) {
   }
   return `Link: ${renderLicenseLink(license)}
 
-  THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ${license} PUBLIC LICENSE (“AGREEMENT”). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.`
+  THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS (${license}) PUBLIC LICENSE (“AGREEMENT”). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.`
+
+}
+// If there is no image provide, a return for placement
+function screenshot(image, title) {
+  if (!image) {
+    return 'Screenshot not provided.'
+  }
+  return `![${title}](${image})`
+}
+// If there is no mentions provided, a return for placement
+function mention(mentions) {
+  if (!mentions) {
+    return 'No mentions provided'
+  }
+  return `@${mentions}`
 
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const { title, license, description, motivation, codeUsed, color, image } = data;
+  const { title, license, description, motivation, codeUsed, color, image, contributor, username, name, test, mentions, email } = data;
 
   return `
-  # Project - ${title}
+  # Project  ${title}
   
   ## Badge
 
@@ -51,9 +66,11 @@ function generateMarkdown(data) {
 
   * [License](#license)
 
-  * [Contributing](#contributing)
+  * [Contributed](#contributed)
 
   * [Tests](#tests)
+
+  * [Questions](#questions)
 
   ---
 
@@ -77,15 +94,44 @@ function generateMarkdown(data) {
 
   ## Screenshot
 
-  ![${title}](${image})
+  ${screenshot(image, title)}
+
+  ---
 
   ## License
-  
-  ---
 
   ${renderLicenseSection(license)}
 
   ---
+
+  ## Contributed:
+
+  ${contributor}
+
+  ---
+
+  ## Tests: 
+
+  ${test}
+
+  ## Questions
+
+  If you have any questions on this repo, please contact ${email}.
+
+  ## GitHub
+
+  * [GitHub Repo: ${username}](https://github.com/${username}/${title})
+
+  * [GitHub:](https://github.com/${username})
+
+  ## CONTRIBUTION:
+
+  Made with ❤️ by ${name}
+
+  ### Mentions: 
+
+  ${mention(mentions)}
+
 `;
 }
 
