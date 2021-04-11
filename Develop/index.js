@@ -7,27 +7,67 @@ const questions = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is your name? '
+        message: 'What is your name?',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your name!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'title',
-        message: 'What is the name of your project/repository? ',
+        message: 'What is the name of your project/repository?',
+        validate: titleInput => {
+            if (titleInput) {
+                return true;
+            } else {
+                console.log('Please provide project/repository!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'description',
-        message: 'Please provide description of your project: '
+        message: 'Please provide description of your project:',
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true;
+            } else {
+                console.log('Please provide a description!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'motivation',
-        message: 'What gave you the idea to create this project: '
+        message: 'What gave you the idea to create this project:',
+        validate: motivationInput => {
+            if (motivationInput) {
+                return true;
+            } else {
+                console.log('Please provide information for your motivation!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'codeUsed',
-        message: 'What coding languages did you use? (Seperate with commas)'
+        message: 'What coding languages did you use? (Seperate with commas)',
+        validate: codeInput => {
+            if (codeInput) {
+                return true;
+            } else {
+                console.log('Please provide at least one code base!');
+                return false;
+            }
+        }
     },
     {
         type: 'list',
@@ -39,38 +79,85 @@ const questions = [
         type: 'list',
         name: 'color',
         message: 'What color would you like to make your license badge?',
-        choices: ['brightgreen', 'green', 'yellowgreen', 'yellow', 'red', 'blue', 'blueviolet','black']
-
+        choices: ['brightgreen', 'green', 'yellowgreen', 'yellow', 'red', 'blue', 'blueviolet', 'black']
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please provide necessary information for usage of project! '
+        message: 'Please provide necessary information for usage of project!',
+        validate: usageInput => {
+            if (usageInput) {
+                return true;
+            } else {
+                console.log('Please provide necessary information!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'installation',
-        message: 'What necessary dependencies must be installed to run this app? '
+        message: 'What necessary dependencies must be installed to run this app?',
+        validate: installInput => {
+            if (installInput) {
+                return true;
+            } else {
+                console.log('Please provide install directions!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'contributor',
-        message: 'Please advise on any contributions you have made: '
+        message: 'Please advise on any contributions you have made:',
+        validate: contributeInput => {
+            if (contributeInput) {
+                return true;
+            } else {
+                console.log('Please provide contributions!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'test',
-        message: 'Please advise on your test opporations performed for your project: '
+        message: 'Please advise on your test opporations performed for your project:',
+        validate: testInput => {
+            if (testInput) {
+                return true;
+            } else {
+                console.log('Please provide tests if any!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'username',
-        message: 'What is your GitHub username?'
+        message: 'What is your GitHub username?',
+        validate: userInput => {
+            if (userInput) {
+                return true;
+            } else {
+                console.log('Please enter a GitHub username!');
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'email',
-        message: 'What is your email address?'
+        message: 'What is your email address?',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter an email!');
+                return false;
+            }
+        }
     },
     {
         type: 'confirm',
@@ -85,7 +172,6 @@ const questions = [
         when: ({ confirmAbout }) => {
             if (confirmAbout) {
                 return true;
-
             } else {
                 return false;
             }
@@ -110,7 +196,6 @@ const questions = [
         }
     }
 ]
-
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
@@ -121,7 +206,6 @@ function writeToFile(fileName, data) {
         console.log('Successfully published: ' + fileName);
     })
 }
-
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
@@ -129,12 +213,11 @@ function init() {
             writeToFile('README.md', generateMarkdown(data));
         })
 }
-
 // Function call to initialize app
 init();
 
 //Developer notes: 
-// Will create redundancies for each input
+// Will create redundancies for each input = done
 // Create video link for presentation of project
 // Clean code for possible errors and whitespace
 // Create text file for easy copy paste of input
