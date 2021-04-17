@@ -218,6 +218,7 @@ init();
 
 //Developer notes: 
 // Will create redundancies for each input = done
-// Create video link for presentation of project
-// Clean code for possible errors and whitespace
-// Create text file for easy copy paste of input
+// Create video link for presentation of project = 
+// Clean code for possible errors and whitespace = done
+// Create text file for easy copy paste of input = 
+// Use program to create README for project = 
