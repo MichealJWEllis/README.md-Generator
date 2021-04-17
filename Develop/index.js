@@ -180,13 +180,13 @@ const questions = [
     {
         type: 'confirm',
         name: 'confirmImage',
-        message: 'Would you like to add image to your README? ',
+        message: 'Would you like to add image/video to your README? ',
         default: true
     },
     {
         type: 'input',
         name: 'image',
-        message: 'Please provide image link: ',
+        message: 'Please provide image/video link: ',
         when: ({ confirmImage }) => {
             if (confirmImage) {
                 return true;
@@ -199,7 +199,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
-    fs.writeFile('../' + fileName, data, function (err) {
+    fs.writeFile('../Develop/dist' + fileName, data, function (err) {
         if (err) {
             return console.log(err);
         }
