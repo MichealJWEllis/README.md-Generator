@@ -114,7 +114,7 @@ function generateMarkdown(data) {
 
   ## GitHub
 
-  * [GitHub Repo: ${username}](https://github.com/${username}/${title})
+  * [GitHub Repository: ${username}](https://github.com/${username}/${title})
 
   * [GitHub:](https://github.com/${username})
 

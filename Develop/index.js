@@ -199,7 +199,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
-    fs.writeFile('../Develop/dist' + fileName, data, function (err) {
+    fs.writeFile('../Develop/dist/' + fileName, data, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -220,5 +220,5 @@ init();
 // Will create redundancies for each input = done
 // Create video link for presentation of project = 
 // Clean code for possible errors and whitespace = done
-// Create text file for easy copy paste of input = 
+// Create text file for easy copy paste of input = done
 // Use program to create README for project = 
