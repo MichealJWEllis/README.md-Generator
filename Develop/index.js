@@ -180,13 +180,13 @@ const questions = [
     {
         type: 'confirm',
         name: 'confirmImage',
-        message: 'Would you like to add image/video to your README? ',
+        message: 'Would you like to add image to your README? ',
         default: true
     },
     {
         type: 'input',
         name: 'image',
-        message: 'Please provide image/video link: ',
+        message: 'Please provide image link: ',
         when: ({ confirmImage }) => {
             if (confirmImage) {
                 return true;
