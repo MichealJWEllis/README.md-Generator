@@ -216,9 +216,4 @@ function init() {
 // Function call to initialize app
 init();
 
-//Developer notes: 
-// Will create redundancies for each input = done
-// Create video link for presentation of project = 
-// Clean code for possible errors and whitespace = done
-// Create text file for easy copy paste of input = done
-// Use program to create README for project = 
+
